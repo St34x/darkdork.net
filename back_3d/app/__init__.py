@@ -37,13 +37,13 @@ def create_app():
     login_manager.user_loader(load_user)
 
     # Register the Blueprint
-    app.register_blueprint(auth_blueprint, url_prefix='/auth')
-    app.register_blueprint(logout_blueprint, url_prefix='/session')
-    app.register_blueprint(restore_session_blueprint, url_prefix='/restore-session')
-    app.register_blueprint(change_passwd_blueprint, url_prefix='/change-password')
-    app.register_blueprint(change_username_blueprint, url_prefix='/change-username')
-    app.register_blueprint(change_token_price_blueprint, url_prefix='/change-price')
-    app.register_blueprint(get_token_price_blueprint, url_prefix='/tokens')
+    app.register_blueprint(auth_blueprint, url_prefix='/api/auth')
+    app.register_blueprint(logout_blueprint, url_prefix='/api/session')
+    app.register_blueprint(restore_session_blueprint, url_prefix='/api/restore-session')
+    app.register_blueprint(change_passwd_blueprint, url_prefix='/api/change-password')
+    app.register_blueprint(change_username_blueprint, url_prefix='/api/change-username')
+    app.register_blueprint(change_token_price_blueprint, url_prefix='/api/change-price')
+    app.register_blueprint(get_token_price_blueprint, url_prefix='/api/tokens')
 
     if app.config["ENV"] == "production":
         app.config.from_object(ProductionConfig)
