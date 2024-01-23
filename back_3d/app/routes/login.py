@@ -13,6 +13,7 @@ auth_blueprint = Blueprint('auth', __name__)
 
 @auth_blueprint.route('/login', methods=['POST'])
 def login():
+    try:
         # Deserialize and validate the request data
         schema = LoginSchema()
         data = schema.load(request.json)
