@@ -1,10 +1,9 @@
-/*@font-face {
+@font-face {
     font-family: 'MonoSpace';
-    src: url('path/to/font.woff2') format('woff2'),
-         url('path/to/font.woff') format('woff');
+    src: url('/home/ubuntu/SpaceMono-Regular.ttf') format('ttf');
     font-weight: normal;
     font-style: normal;
-}*/
+}
 
 body {
     background-color: #1B1B2F; /* Very dark blue background */
