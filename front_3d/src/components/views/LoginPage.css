@@ -1,0 +1,56 @@
+/* In src/components/views/LoginPage.css */
+
+body {
+    overflow: hidden;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-page {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.login-page form {
+    text-align: center;
+}
+
+.login-page form div {
+    margin-bottom: 15px;
+}
+
+input:focus {
+    outline: none;
+}
+
+.login-page form input {
+    width: 100%;
+    font-size: 1.25em;
+    padding: 8px;
+    color: #E43F5A; /* Bold red */
+    background-color: #162447; 
+    border: 1px solid #1F4068;
+    border-radius: 4px;
+}
+
+.login-page button {
+    width: auto;
+    font-size: 1.5em;
+    padding: 10px;
+    background-color: #162447; /* Dark blue */
+    color: #E43F5A; /* Bold red */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-page button:hover {
+    background-color: #E43F5A; /* Darker blue */
+    color: #162447;
+}
+

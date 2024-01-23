@@ -1,0 +1,30 @@
+/* Index.css */
+
+body {
+    overflow: hidden;
+    height: 100vh;
+    margin: 0;
+}
+
+.terminal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.start {
+    background-color: #162447; /* Dark blue */
+    font-size: 3em;
+    color: #E43F5A; /* Bold red */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.start:hover {
+    background-color: #E43F5A; /* Lighter blue */
+    color: #1F4068;
+}
+
