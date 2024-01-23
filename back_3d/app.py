@@ -4,6 +4,7 @@ from mistralai.models.chat_completion import ChatMessage
 from flask import session, copy_current_request_context
 from mistralai.client import MistralClient
 from flask_socketio import SocketIO, emit
+from flask import send_from_directory
 from app import create_app
 import os
 
@@ -53,6 +54,13 @@ def handle_gpt_request(data):
             emit('error', {'message': str(e)})
 
     handle_request()
+
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def serve(path):
+    if path and os.path.exists(app.static_folder + '/' + path):
+        return send_from_directory(app.static_folder, path)
+    return send_from_directory(app.static_folder, 'index.html')
 
 if __name__ == '__main__':
     socketio.run(app)

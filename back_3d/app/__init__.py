@@ -6,19 +6,19 @@ from .routes.restore_session import restore_session_blueprint
 from .routes.change_username import change_username_blueprint
 from .routes.change_password import change_passwd_blueprint
 from config import DevelopmentConfig, ProductionConfig
+from flask import Flask, session, send_from_directory
 from .routes.logout import logout_blueprint
 from .routes.login import auth_blueprint
 from flask_login import LoginManager
 from flask_talisman import Talisman
 from flask_session import Session
-from flask import Flask, session
 from datetime import timedelta
 from .models import load_user
 from flask_cors import CORS
 from .database import db
 
 def create_app():
-    app = Flask(__name__)
+    app = Flask(__name__, static_folder='../build')
     CORS(app)
     Talisman(app)
     
