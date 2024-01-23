@@ -108,7 +108,7 @@ const Dashboard = () => {
             setSuccessMessageUsername('Username changed successfully');
             setErrorMessageUsername('')
         } catch (error) {
-            setErrorMessageUsername('Error changing username:', error);
+            setErrorMessageUsername(error.message);
             setSuccessMessageUsername('')
         }
     };
@@ -129,11 +129,11 @@ const Dashboard = () => {
             }
 
             // Handle success
-            setSuccessMessageTokenPrice(`Price for ${tokenType} updated successfully`);
+            setSuccessMessageTokenPrice(`Price for ${tokenType} tokens was updated successfully`);
             setErrorMessageTokenPrice('');
             alert();
         } catch (error) {
-            setErrorMessageTokenPrice(`Error updating price for ${tokenType}: ${error.message}`);
+            setErrorMessageTokenPrice(`Error updating price for ${tokenType} tokens: ${error.message}`);
             setSuccessMessageTokenPrice('')
         }
     };

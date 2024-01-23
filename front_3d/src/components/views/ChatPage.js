@@ -29,6 +29,19 @@ const ChatPage = () => {
         adjustTextareaHeight(e.target);
     };
 
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter' && e.ctrlKey) {
+            e.preventDefault(); // Prevent default to avoid a new line being added
+            sendMessage();
+        } else if (e.key === 'Enter' && !e.ctrlKey) {
+            // Insert a new line at the current cursor position
+            const cursorPosition = e.target.selectionStart;
+            const text = newMessage;
+            const newText = text.slice(0, cursorPosition) + '\n' + text.slice(cursorPosition);
+            setNewMessage(newText);
+        }
+    };
+
     useEffect(() => {
         // Adjust the height of the textarea if it has an initial value
         const textarea = document.getElementById('chatTextarea');
@@ -88,11 +101,8 @@ const ChatPage = () => {
 
     const sendMessage = () => {
         if (newMessage.trim() !== '') {
-            const messageData = { text: newMessage };
+            const messageData = { text: newMessage.trim() };
             socket.emit('send_message', messageData);  // Emitting the message to the server
-
-            const textarea = document.getElementById('chatTextarea');
-            textarea.style.height = '1.35em';
 
             // Add the sent message to the messages state
             setMessages(messages => [...messages, { text: newMessage, sentByMe: true }]);
@@ -159,6 +169,7 @@ const ChatPage = () => {
                     rows="1"
                     value={newMessage}
                     onChange={handleTextareaChange}
+                    onKeyPress={handleKeyPress}
                     placeholder="Type a message..."
                 ></textarea>
                 <button className="sendMessage" onClick={sendMessage}>Send</button>

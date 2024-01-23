@@ -1,7 +1,7 @@
 // src/services/authService.js
 const login = async (username, password) => {
     try {
-        const response = await fetch('http://localhost:5000/auth/login', {  // Replace with your Flask API URL
+        const response = await fetch('/auth/login', {  // Replace with your Flask API URL
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
