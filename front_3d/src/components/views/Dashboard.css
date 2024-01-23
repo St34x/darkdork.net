@@ -1,0 +1,82 @@
+/* Dashboard.css */
+
+.dashboard-container {
+    max-width: 48em;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1F4068; /* Dark blue */
+    border-radius: 8px;
+}
+
+.go-back-button {
+    padding: 5px 10px;
+    background-color: #1B1B2F; /* Darker blue */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 7em;
+    margin: 1em;
+}
+
+.go-back-button:hover {
+    background-color: #162447; /* Even darker blue */
+    padding: 1em;
+}
+
+.price-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.change-price{
+    width: 6em;
+}
+
+form {
+    margin-bottom: 2em;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #E43F5A; /* Bold red */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #1B1B2F; /* Dark blue */
+}
+
+.success-message, .error-message {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+}
+
+.success-message {
+    background-color: #28a745; /* Keeping green for success */
+}
+
+.error-message {
+    background-color: #dc3545; /* Keeping red for error */
+}
+

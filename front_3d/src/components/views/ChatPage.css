@@ -1,0 +1,103 @@
+/* Main Chat Container */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh ; /* Adjust the height as needed */
+    align-items: center;
+    justify-content: center;
+}
+
+/* Chat Messages Area */
+.chat-messages {
+    flex-grow: 1; /* Allow this area to grow and fill available space */
+    overflow-y: auto; /* Enable scrolling for overflow */
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 10px; /* Space between messages and input area */
+    width: 48em;
+}
+/* General Styles for Chat Messages */
+.chat-messages div {
+    margin-bottom: 10px;
+    max-width: 100%;
+    padding: 12px;
+    word-break: break-word;
+}
+
+pre {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Styles for Messages Sent by Me */
+.chat-messages .my-message {
+    margin-left: auto; /* Align to the right */
+}
+
+/* Styles for Messages from Others */
+.chat-messages .other-message {
+    margin-right: auto; /* Align to the left */
+}
+
+#lastMessage {
+    border-bottom: 0.1em solid #162447;
+}
+
+/* Chat Input Area */
+.chat-input {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    width: 48em;
+    display: flex;
+    align-items: center;
+    padding: 2.5em;
+}
+
+/* Input Field */
+.chat-input textarea {
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 1.35em;
+    resize: none; /* Allow vertical resizing */
+    color: #F0F0F0;
+    background-color: transparent; /* Darker background */
+    border: 1px solid #162447;
+    border-radius: 4px;
+    max-height: calc(1.35em * 8); /* Maximum height before scrolling */
+}
+
+.chat-input textarea:focus {
+    outline: none;
+}
+
+
+.chat-input .sendMessage {
+    padding: 5px 5px;
+    margin-left: 39em;
+    font-size: 1.1em;
+    background-color: transparent;
+    color: #4a6cd4;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    width: 4em;
+}
+
+.chat-input .sendMessage:hover {
+    background-color: #4a6cd4;
+    color: #F0F0F0;
+}
+
+ /* Hide scrollbar for Chrome, Safari and Opera */
+.chat-messages::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.chat-messages{
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+} 
