@@ -11,11 +11,8 @@ from ..requests import *
 # Create a Blueprint
 auth_blueprint = Blueprint('auth', __name__)
 
-@auth_blueprint.route('/login', methods=['POST', 'OPTIONS'])
+@auth_blueprint.route('/login', methods=['POST'])
 def login():
-    if request.method == 'OPTIONS':
-         return request.json, 200
-    try:
         # Deserialize and validate the request data
         schema = LoginSchema()
         data = schema.load(request.json)

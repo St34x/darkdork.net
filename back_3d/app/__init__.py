@@ -18,7 +18,7 @@ from flask_cors import CORS
 from .database import db
 
 def create_app():
-    app = Flask(__name__, static_folder='../build')
+    app = Flask(__name__, static_folder='../static')
     CORS(app)
     Talisman(app)
     
