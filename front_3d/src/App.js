@@ -7,9 +7,8 @@ import ProtectedRoute from './components/views/ProtectedRoute';
 import Dashboard from './components/views/Dashboard';
 
 const App = () => {
-    const isAuthenticated = true;
 
-    // const isAuthenticated = !!localStorage.getItem('Authenticated');
+    const isAuthenticated = !!localStorage.getItem('Authenticated');
     
     return (
         <Router>

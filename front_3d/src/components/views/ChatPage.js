@@ -16,7 +16,7 @@ const ChatPage = () => {
     const location = useLocation();
     const userDataFromLogin = location.state?.userData;
     // change it in prodaction
-    const [userData, setUserData] = useState(userDataFromLogin ||{});
+    const [userData, setUserData] = useState(userDataFromLogin);
     const lastMessageRef = useRef(null);
 
     const adjustTextareaHeight = (element) => {
@@ -55,7 +55,7 @@ const ChatPage = () => {
 
         const fetchUserData = async () => {
             try {
-                const response = await fetch('http://localhost:5000/restore-session/user', {
+                const response = await fetch('api/restore-session/user', {
                     credentials: 'include' // Important for cookies/session
                 });
                 if (response.ok) {
@@ -112,7 +112,7 @@ const ChatPage = () => {
     };
 
     const handleLogout = async () => {
-        const response = await fetch('/logout', { method: 'POST' });
+        const response = await fetch('api/session/logout', { method: 'POST' });
         const data = await response.json();
 
         if (response.ok) {

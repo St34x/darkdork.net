@@ -1,7 +1,7 @@
 // authService.js
 const logout = async () => {
     try {
-        const response = await fetch('http://localhost:5000/session/logout', 
+        const response = await fetch('api/session/logout', 
             { 
                 method: 'POST', 
                 credentials: 'include'

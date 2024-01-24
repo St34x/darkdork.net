@@ -1,4 +1,5 @@
 from dotenv import load_dotenv
+from datetime import timedelta
 import os
 
 load_dotenv()  # This loads variables from .env
@@ -19,16 +20,19 @@ class DevelopmentConfig(Config):
     """Development configuration."""
 
     DEBUG = True
-    # Development-specific settings like database URIs
 
 class TestingConfig(Config):
     """Testing configuration."""
 
     TESTING = True
-    # Testing-specific settings
 
 class ProductionConfig(Config):
     """Production configuration."""
-
-    # Production-specific settings
+    ENV = 'production'
+    DEBUG = False
+    SESSION_COOKIE_HTTPONLY = True
+    SESSION_COOKIE_SECURE = True
+    SESSION_COOKIE_SAMESITE = 'Strict'  # or 'Lax'
+    SESSION_TYPE = 'filesystem'
+    PERMANENT_SESSION_LIFETIME = timedelta(hours=3)
 

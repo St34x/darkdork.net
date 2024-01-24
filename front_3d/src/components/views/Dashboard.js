@@ -38,7 +38,7 @@ const Dashboard = () => {
     useEffect(() => {
         const fetchTokenPrices = async () => {
             try {
-                const response = await fetch('/tokens/get-token-prices', {
+                const response = await fetch('/api/tokens/get-token-prices', {
                     method: 'POST',
                     headers: {
                         credentials: 'include'
@@ -67,7 +67,7 @@ const Dashboard = () => {
         }
 
         try {
-            const response = await fetch(`/change-password/user/${userId}`, {
+            const response = await fetch(`/api/change-password/user/${userId}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -91,7 +91,7 @@ const Dashboard = () => {
 
     const handleChangeUsername = async (userId, newUsername) => {
         try {
-            const response = await fetch(`/change-username/user/${userId}`, {
+            const response = await fetch(`/api/change-username/user/${userId}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -115,7 +115,7 @@ const Dashboard = () => {
 
     const handlePriceUpdate = async (tokenType, newPrice) => {
         try {
-            const response = await fetch(`/change-price/token-pricing/${tokenType}`, {
+            const response = await fetch(`/api/change-price/token-pricing/${tokenType}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

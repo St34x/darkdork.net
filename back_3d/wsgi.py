@@ -9,7 +9,7 @@ from app import create_app
 import os
 
 app = create_app()
-socketio = SocketIO(app, cors_allowed_origins="*")  # Configure CORS if necessary
+socketio = SocketIO(app, cors_allowed_origins="https://darkdork.net")  # Configure CORS if necessary
 mistral_api_key = os.environ.get('MISTRAL_API_KEY')
 
 def calculate_token_usage(text):
@@ -26,10 +26,6 @@ def handle_gpt_request(data):
         token_usage = calculate_token_usage(user_input)
 
         full_response_text = ""
-
-        # Only in dev env
-        if 'outgoing_tokens' not in session:
-            session['outgoing_tokens'] = 0
 
         try:
             messages = [ChatMessage(role="user", content=user_input)]
@@ -62,5 +58,5 @@ def serve(path):
         return send_from_directory(app.static_folder, path)
     return send_from_directory(app.static_folder, 'index.html')
 
-if __name__ == '__main__':
-    socketio.run(app)
+# if __name__ == '__main__':
+#     socketio.run(app)

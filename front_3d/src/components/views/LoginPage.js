@@ -14,7 +14,6 @@ const LoginPage = () => {
         event.preventDefault();
         try {
             const userData = await login(username, password);
-            console.log('Logged in user:', userData);
             navigate('/chat');
             setError('');
         } catch (error) {

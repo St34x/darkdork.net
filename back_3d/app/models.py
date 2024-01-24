@@ -10,7 +10,6 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), unique=True, nullable=False)
     password_hash = db.Column(db.String(128))
-    transactions = db.relationship('TokenTransaction', backref='user_id', lazy=True)
     is_admin = db.Column(db.Boolean, default=False)
     incoming_tokens = db.Column(db.Float, default=0.0)  # Number of tokens received
     outgoing_tokens = db.Column(db.Float, default=0.0)
