@@ -9,7 +9,7 @@ from app import create_app
 import os
 
 app = create_app()
-socketio = SocketIO(app, cors_allowed_origins="https://darkdork.net")  # Configure CORS if necessary
+socketio = SocketIO(app, cors_allowed_origins="https://darkdork.net")  # Configure CORS 
 mistral_api_key = os.environ.get('MISTRAL_API_KEY')
 
 def calculate_token_usage(text):
