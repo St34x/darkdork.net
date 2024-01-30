@@ -13,12 +13,10 @@ from flask_login import LoginManager
 from flask_talisman import Talisman
 from flask_session import Session
 from .models import load_user
-from flask_cors import CORS
 from .database import db
 
 def create_app():
     app = Flask(__name__, static_folder='../static')
-    CORS(app)
     # CSP settings
     csp = {
         'default-src': [
@@ -34,6 +32,8 @@ def create_app():
 
     Talisman(app, content_security_policy=csp)
     Session(app)
+
+    app.config["ENV"] = "production"
 
     # Initialize LoginManager
     login_manager = LoginManager()

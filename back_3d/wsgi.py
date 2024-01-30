@@ -5,11 +5,13 @@ from flask import session, copy_current_request_context
 from mistralai.client import MistralClient
 from flask_socketio import SocketIO, emit
 from flask import send_from_directory
+from flask_cors import CORS
 from app import create_app
 import os
 
 app = create_app()
-socketio = SocketIO(app, cors_allowed_origins="https://darkdork.net")  # Configure CORS 
+CORS(app, resources={r"/socket.io/*": {"origins": "https://darkdork.net"}})
+socketio = SocketIO(app=app, cors_allowed_origins="https://darkdork.net", path='/socket.io')
 mistral_api_key = os.environ.get('MISTRAL_API_KEY')
 
 def calculate_token_usage(text):

@@ -7,7 +7,7 @@ import io from 'socket.io-client';
 import hljs from 'highlight.js';
 import './ChatPage.css'
 
-const socket = io('https://www.darkdork.net'); // Replace with your server URL
+const socket = io('https://www.darkdork.net', { path: '/socket.io' }); // Replace with your server URL
 
 const ChatPage = () => {
     const [messages, setMessages] = useState([]);
